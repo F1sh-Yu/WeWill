@@ -1,0 +1,44 @@
+{
+    "pages": [
+      "pages/index/index",
+      "pages/list/index",
+      "pages/add/index",
+      "pages/addMemoryDay/index",
+      "pages/pick/index",
+      "pages/upload/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ff99aa",
+        "navigationBarTitleText": "WeWill",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "useExtendedLib": {
+      "weui":true
+    },
+    "tabBar": {
+      "color": "#1a1a1a",
+      "selectedColor": "#ff99aa",
+      "list": [{
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "images/TabBar/HomeIconColor.jpg",
+        "iconPath": "images/TabBar/HomeIconGrey.jpg",
+        "text": "首页"
+      }, {
+        "pagePath": "pages/list/index",
+        "selectedIconPath": "images/TabBar/MissionIconColor.jpg",
+        "iconPath": "images/TabBar/MissionIconGrey.jpg",
+        "text": "任务"
+      },{
+        "pagePath": "pages/pick/index",
+        "selectedIconPath": "images/TabBar/MarketIconColor.jpg",
+        "iconPath": "images/TabBar/MarketIconGrey.jpg",
+        "text": "纪念日"
+      },{
+        "pagePath": "pages/upload/index",
+        "text": "图片"
+      }]
+    }
+}

@@ -1,0 +1,33 @@
+<view style="width:100%; background: none;">
+
+<swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
+    <swiper-item><image src="Images/1.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+    <swiper-item><image src="Images/2.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+    <swiper-item><image src="Images/3.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+</swiper>
+
+<view class="form-group_label">⏳ 倒数日</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <view class="form-cell" wx:for="{{futureDayList}}" wx:key="index">
+      <view class="slide">
+      <view wx:if="{{item.days > 0}}" class="title">离 {{item.title}} 还有 {{item.days}} 天</view>
+      <view wx:if="{{item.days === 0}}" class="title"> {{item.title}} 就在今天</view>
+      </view>
+  </view>
+</view>
+
+<view class="form-group_label">🐻 欢迎回来</view>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title">欢迎！小王和小俞！</view>
+    </view>
+  </view>
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title">今天想做什么呢？</view>
+    </view>
+  </view>
+</view>
+
+</view>

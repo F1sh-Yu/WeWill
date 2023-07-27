@@ -1,0 +1,46 @@
+<wxs module="util" src="../util.wxs" />
+
+  <view class="form-group_label">倒数日<mp-badge content="{{futureDayList.length}}" style="margin-left: 5px;" /></view>
+  <view class="form-group" wx:if="{{futureDayList.length > 0}}" 
+  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell" wx:for="{{futureDayList}}" wx:key="index">
+      <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTap">
+        <view class="slide" data-index="{{index}}" bindtap="toDetailPage">
+          <view class="mission-info">
+            <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="mission-info_award">📅 {{item.date}} </view>
+            <view wx:if="{{item.days > 0}}" class="mission-info_date">⌛️ 还有{{item.days}} 天</view>
+            <view wx:if="{{item.days === 0}}" class="mission-info_date">⌛️ 就在今天</view>
+          </view>
+          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+        </view>
+      </mp-slideview>
+    </view>
+  </view>
+
+  <view class="form-group_label">纪念日<mp-badge content="{{pastDayList.length}}" style="margin-left: 5px;" /></view>
+  <view class="form-group" wx:if="{{pastDayList.length > 0}}" 
+  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell" wx:for="{{pastDayList}}" wx:key="index">
+      <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTap">
+        <view class="slide" data-index="{{index}}" bindtap="toDetailPage">
+          <view class="mission-info">
+            <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="mission-info_award">📅 {{item.date}} </view>
+            <view class="mission-info_date">⌛️ 已经{{item.days}} 天了</view>
+          </view>
+          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+        </view>
+      </mp-slideview>
+    </view>
+  </view>
+
+
+  <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toAddPage" 
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="Images/Plus.png"/>任务
+    </button>
+  </movable-view>
+</movable-area>
