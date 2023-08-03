@@ -14,10 +14,16 @@
       <view class="form-cell_title">📝任务详情</view>
       <textarea class="form-cell_input" placeholder="任务是要做什么呢?" placeholder-class="form-cell_placeholder" bindinput="onDescInput" value="{{desc}}" />
     </view>
+    <view class="form-cell" style="overflow: scroll;">
+      <view class="form-cell_title" style="display: inline;">📷照片记录</view>
+      <button class="weui-btn weui-btn_mini weui-btn_primary" style="display: inline;background-color: pink;left: 30%;" bindtap="uploadImage">上传图片</button>
+      <image wx:if="{{imageUrl}}" src="{{imageUrl}}" mode="aspectFit" />
+    </view>
   </view>
 
   <view class="footer">
     <view class="reset" bindtap="resetMission">重置</view>
-    <view class="save" bindtap="handleTap">保存</view>
+    <view wx:if="{{buttonType=='add'}}" class="save" bindtap="handleTap" data-type='add'>保存</view>
+    <view wx:if="{{buttonType=='edit'}}" class="save" bindtap="handleTap" data-type='edit'>保存</view>
   </view>
 </view>

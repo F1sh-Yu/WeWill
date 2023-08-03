@@ -1,0 +1,9 @@
+<!--pages/setting/index.wxml-->
+<button wx:if="{{imgSrc==''}}" bindtap="chooseImg" > 选择</button>
+<!-- <button wx:if="{{imgSrc!=''}}" bindtap="uploadImg">上传</button> -->
+
+<image wx:if="{{imgSrc!=''}}" src="{{imgSrc}}" mode="aspectFill"></image>
+
+<button wx:if="{{imgSrc!=''}}" bindtap="uploadImg">上传</button>
+<button wx:if="{{imgSrc!=''}}" bindtap="resetImg">清除</button>
+

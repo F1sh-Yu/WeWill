@@ -17,7 +17,7 @@ Page({
     screenHeight: 1000,
     slideButtons: [
       {extClass: 'markBtn', text: '标记', src: "/images/icon_mark.svg"},
-      {extClass: 'starBtn', text: '星标', src: "/images/icon_star.svg"},
+      {extClass: 'starBtn', text: '星标', src: "/images/icon_edit.png"},
       {extClass: 'removeBtn', text: '删除', src: '/images/icon_del.svg'}
     ],
   },
@@ -43,9 +43,12 @@ Page({
         finishedList:result.data.finished_list,
         haveGetRecord:true
       })
-      console.log(result)
     } else {
-      console.log(result)
+      wx.showToast({
+        title: '列表加载失败',
+        icon: 'error',
+        duration: 3000
+      })
     }
     wx.hideLoading()
   },
@@ -84,24 +87,10 @@ Page({
       }
     }
     if (index === 1) {
-      const result = await app.call({
-        path:`wish/item/star/v1`,
-        method:'POST',
-        data: {
-          id: mission.id,
-          star: !mission.star
-        }
-      })
-      if (result.code == 0) {
-          mission.star = !mission.star
-          console.log(mission)
-      } else {
-        wx.showToast({
-          title: '操作失败',
-          icon: 'error',
-          duration: 2000
-          })
-      }
+        var id = mission.id
+        wx.navigateTo({
+          url: '/pages/add/index?type=edit&mission_id='+ id,
+        })
     }
     if (index === 2) {
       const result = await app.call({
@@ -192,7 +181,24 @@ Page({
   },
 
   async toAddPage() {
-    wx.navigateTo({url: '/pages/add/index'})
+    wx.navigateTo({url: '/pages/add/index?type=add'})
   },
 
+  toDetailPageLower(event){
+    this.toDetailPage(event, false)
+  },
+
+  toDetailPageUpper(event){
+    this.toDetailPage(event, true)
+  },
+
+  toDetailPage(event, isUpper){
+    var that = this
+    let data = that.data
+    const missionIndex = event.currentTarget.dataset.index
+    const mission = isUpper === true ? this.data.unfinishedList[missionIndex] : this.data.finishedList[missionIndex] 
+
+    mission["showDetail"] = !mission["showDetail"]
+    that.setData(data)
+  }
 });

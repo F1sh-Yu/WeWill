@@ -82,5 +82,13 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  imagePreview() {
+    wx.previewImage({
+      urls: ["cloud://prod-9g3364rpf16bf509.7072-prod-9g3364rpf16bf509-1318902082/src/index/1.jpg",
+    "cloud://prod-9g3364rpf16bf509.7072-prod-9g3364rpf16bf509-1318902082/src/index/2.jpg",
+  "cloud://prod-9g3364rpf16bf509.7072-prod-9g3364rpf16bf509-1318902082/src/index/3.jpg"],
+    })
   }
 })

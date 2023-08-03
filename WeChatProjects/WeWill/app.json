@@ -4,8 +4,9 @@
       "pages/list/index",
       "pages/add/index",
       "pages/addMemoryDay/index",
-      "pages/pick/index",
-      "pages/upload/index"
+      "pages/memoryDay/index",
+      "pages/cropper/index",
+      "pages/setting/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -32,13 +33,15 @@
         "iconPath": "images/TabBar/MissionIconGrey.jpg",
         "text": "任务"
       },{
-        "pagePath": "pages/pick/index",
+        "pagePath": "pages/memoryDay/index",
         "selectedIconPath": "images/TabBar/MarketIconColor.jpg",
         "iconPath": "images/TabBar/MarketIconGrey.jpg",
         "text": "纪念日"
       },{
-        "pagePath": "pages/upload/index",
-        "text": "图片"
+        "pagePath": "pages/setting/index",
+        "selectedIconPath": "images/TabBar/AccountIconColor.jpg",
+        "iconPath": "images/TabBar/AccountIconGrey.jpg",
+        "text": "设置"
       }]
     }
 }

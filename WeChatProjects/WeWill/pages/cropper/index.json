@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "image-cropper": "../component/image-cropper/image-cropper"
+  },
+  "navigationBarTitleText": "image-cropper",
+  "disableScroll": true
+}

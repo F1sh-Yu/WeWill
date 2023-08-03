@@ -1,0 +1,4 @@
+<!--pages/cropper/index.wxml-->
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut"></image-cropper>
+
+<button bindtap="uploadImage" class="weui-btn" style="z-index:1024;">按钮</button>

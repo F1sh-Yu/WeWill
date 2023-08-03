@@ -9,7 +9,8 @@
           <view class="mission-info">
             <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
             <view class="mission-info_award">💌 {{util.filterStr(item.category, 10)}} </view>
-            <view wx:if="{{item.description != ''}}"class="mission-info_award">📝 {{util.cutStr(item.description, 10)}} </view>
+            <view wx:if="{{item.description != '' && item.showDetail == true }}"class="mission-info_award">📝 {{item.description}} </view>
+            <image class="mission-info_image" wx:if="{{item.image != '' && item.showDetail == true}}" src="{{item.image}}" mode="aspectFill" ></image> 
           </view>
           <!-- <view class="mission-info_author">
             <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MissionA.png"/>
@@ -26,12 +27,12 @@
   style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell" wx:for="{{finishedList}}" wx:key="index">
       <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapLower">
-        <view class="slide" data-index="{{index}}" bindtap="toDetailPageUpper">
+        <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
           <view class="mission-info">
             <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
             <view class="mission-info_award">💌 {{util.filterStr(item.category, 10)}} </view>
-            <view wx:if="{{item.description == ''}}"class="mission-info_award">📅 {{util.cutStr(item.description, 10)}} </view>
-          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+            <view wx:if="{{item.description != '' && item.showDetail == true }}"class="mission-info_award">📝 {{item.description}} </view>
+            <image class="mission-info_image" wx:if="{{item.image != '' && item.showDetail == true}}" src="{{item.image}}" mode="aspectFill" ></image> 
         </view>
         </view>
       </mp-slideview>

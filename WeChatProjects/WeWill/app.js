@@ -10,10 +10,12 @@ App({
         this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
       }
     })
+    this.getOpenId()
   },
 
   globalData: {
-    StatusBar:null
+    StatusBar:null,
+    openId:''
   },
 
   async call(obj, number=0){
@@ -53,5 +55,47 @@ App({
         throw new Error(`微信云托管调用失败${error}`)
       }
     }
+  }, 
+
+  async getOpenId() {
+    const result = await this.call({
+      path:`/open_id`,
+      method:'GET',
+      data: {
+      }
+    })
+    this.globalData.openId = result
+  },
+
+      /**
+   * 上传文件到微信云托管对象存储
+   * @param {*} file 微信本地文件，通过选择图片，聊天文件等接口获取
+   * @param {*} path 对象存储路径，根路径直接填文件名，文件夹例子 test/文件名，不要 / 开头
+   * @param {*} onCall 上传回调，文件上传过程监听，返回false时会中断上传
+   */
+  uploadFile(file, path, name, onCall = () => {}) {
+    var format = file.substring(file.lastIndexOf('.')+1)
+    var fileName = name
+    if (fileName == "") {
+      fileName = Math.random().toString(36).substring(2) + '.' +format
+    }
+    return new Promise((resolve, reject) => {
+      const task = wx.cloud.uploadFile({
+        cloudPath: path + fileName,
+        filePath: file,
+        config: {
+          env: 'prod-9g3364rpf16bf509' // 需要替换成自己的微信云托管环境ID
+        },
+        success: res => resolve(res.fileID),
+        fail: e => {
+          resolve('error')
+        }
+      })
+      task.onProgressUpdate((res) => {
+        if (onCall(res) == false) {
+          task.abort()
+        }
+      })
+    })
   }
 });

@@ -1,9 +1,10 @@
 <view style="width:100%; background: none;">
 
-<swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
-    <swiper-item><image src="Images/1.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-    <swiper-item><image src="Images/2.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-    <swiper-item><image src="Images/3.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+<swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;"
+bindtap="imagePreview">
+    <swiper-item><image src="cloud://prod-9g3364rpf16bf509.7072-prod-9g3364rpf16bf509-1318902082/src/index/1.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+    <swiper-item><image src="cloud://prod-9g3364rpf16bf509.7072-prod-9g3364rpf16bf509-1318902082/src/index/2.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+    <swiper-item><image src="cloud://prod-9g3364rpf16bf509.7072-prod-9g3364rpf16bf509-1318902082/src/index/3.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
 </swiper>
 
 <view class="form-group_label">⏳ 倒数日</view>

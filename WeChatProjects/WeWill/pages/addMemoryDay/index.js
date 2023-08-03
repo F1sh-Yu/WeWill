@@ -71,6 +71,9 @@ Page({
         icon: 'success',
         duration: 1000
     })
-    }
+    wx.navigateBack({
+      delta:1
+    })
+  }
   }
 })
